@@ -1,0 +1,60 @@
+$color--neon: #00c2fd;
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+@import 'task';
+@import 'category';
+@import 'input-field';
+@import 'loader';
+@import 'header';
+@import 'modal';
+@import 'boards';
+@import 'notfound';
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background: linear-gradient(120deg, #fccb9077 0%, #d57eeb91 100%),
+    url('https://source.unsplash.com/1920x1080/?nature, trees');
+  height: 100vh;
+  background-attachment: fixed;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 5px;
+  outline: 1px solid slategrey;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+@media (max-width: 500px) {
+  body {
+    min-width: 500px;
+  }
+  .modal-bg {
+    min-width: 500px;
+  }
+}

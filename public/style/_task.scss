@@ -1,0 +1,154 @@
+.task {
+  background: #f1f1f1;
+  flex-grow: 1;
+  margin: 0.35rem;
+  border-radius: 0.25rem;
+  color: black;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: min-content;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transition-duration: 200ms;
+  animation: foldOut 200ms;
+  overflow: hidden;
+  pointer-events: all;
+
+  & > * {
+    padding: 1rem;
+  }
+
+  &:hover .task-edit {
+    opacity: 1;
+  }
+
+  .task-drag {
+    transition-duration: 80ms;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:hover {
+      background: rgb(202, 202, 202);
+    }
+  }
+  .task-title {
+    pointer-events: none;
+    word-break: break-all;
+  }
+  .task-edit {
+    position: relative;
+    opacity: 0;
+    height: 100%;
+    text-decoration: none;
+    transition-duration: 200ms;
+
+    &:hover {
+      padding-right: 20px;
+    }
+    &:hover img {
+      opacity: 0;
+    }
+    &:hover::after {
+      content: 'edit';
+      text-decoration: underline;
+      animation: slide 200ms;
+      color: white;
+      position: absolute;
+      top: 50%;
+      transform: translate(0px, -50%);
+      right: 0px;
+      font-weight: 400;
+    }
+    @keyframes slide {
+      0% {
+        transform: translate(20px, -50%);
+        opacity: 0;
+      }
+      100% {
+        transform: translate(0px, -50%);
+        opacity: 1;
+      }
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      max-width: 20px;
+      transition-duration: 100ms;
+    }
+  }
+  .task-date {
+    color: rgba(0, 0, 0, 0.815);
+    user-select: none;
+  }
+
+  button {
+    background: #f1f1f1;
+    border: none;
+    padding: 0.5rem;
+    color: rgb(233, 83, 83);
+    cursor: pointer;
+    transition-duration: 80ms;
+    align-self: end;
+    display: flex;
+    justify-content: center;
+    &:hover {
+      background: rgb(233, 83, 83);
+      color: #333333;
+    }
+
+    img {
+      max-height: 20px;
+    }
+  }
+}
+.task-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+.invisible {
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  background: transparent;
+  z-index: 999;
+  .task-drag {
+    border-radius: 1rem;
+    background: rgb(202, 202, 202);
+  }
+}
+.left {
+  transform: rotate(-3deg);
+  animation: left 700ms;
+}
+@keyframes left {
+  0% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(-3deg);
+  }
+}
+@keyframes right {
+  0% {
+    transform: rotate(-3deg);
+  }
+  100% {
+    transform: rotate(3deg);
+  }
+}
+.right {
+  transform: rotate(3deg);
+  animation: right 700ms;
+}
+@keyframes foldOut {
+  0% {
+    opacity: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}

@@ -1,0 +1,25 @@
+header {
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  height: 10vh;
+
+  h1 {
+    span {
+      font-weight: 400;
+    }
+  }
+  div {
+    height: 100%;
+  }
+  img {
+    height: 100%;
+  }
+}
+.logo {
+  margin-left: auto;
+}
