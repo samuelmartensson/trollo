@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Trello inspired app I built to get a deeper learning of ReactJS.
 
 ## Available Scripts
 
